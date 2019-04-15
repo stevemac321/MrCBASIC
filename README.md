@@ -3,11 +3,11 @@ The best BASIC compiler found so far is the one from QB64.org.
 
 So far, if I place SCREEN 11 on the first line, the program runs until the map of africa is drawn with the region marks (N, S, etc.) and the prompt" CHOOSE YOUR AREA NOW.  The program does not accept any input at that point.
 
-Capturing MOUSE input does not seem to work.  
+Mouse input needs to be refactored, mouse handling is more complex now.  I added a subroutine that gets the CHX, CHY, and B params. 
 
-Or perhaps the input is accepted, but the fact that the checks for the mouse clicks branch off to labels not in this module, the code is just stuck here at around label 570.
+Replaced delay loops with sleep calls.  Need to press a key to continue. 
 
-Code references labels not in this source file, e.g. 5000 to 20000.  
+Code references labels not in this source file, e.g. 5000 to 20000, perhaps meant to end program 
 
 WAVE keyword does not seem to be supported, see line 114 (label 349)
 
