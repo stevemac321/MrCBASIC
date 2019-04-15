@@ -1,7 +1,7 @@
 # MrCBASIC
 The best BASIC compiler found so far is the one from QB64.org.
 
-So far, if I place SCREEN 11 on the first line, the program runs until the map of africa is drawn with the region marks (N, S, etc.) and the prompt" CHOOSE YOUR AREA NOW.  The program does not accept any input at that point.
+You need to set the screen mode.  SCREEN 11 on the first line.
 
 Mouse input needs to be refactored, mouse handling is more complex now.  I added a subroutine that gets the CHX, CHY, and B params. 
 
