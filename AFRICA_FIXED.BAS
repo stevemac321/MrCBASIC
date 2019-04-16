@@ -219,10 +219,10 @@ REM 349 WAVE 0,SIN
 553 PRINT "CHOOSE YOUR AREA NOW.": GOSUB 400
 554 CHX = 0: CHY = 0: B = 0
 555 _KEYCLEAR
+REM To get coordinates, comment next line (GetXY), then uncomment the line after that (GetCoords)
+REM Be sure to restore for normal use.  Uncomment out GetXY, comment out GetCoords
 557 GetXY CHX, CHY
-REM 559 IF B <> -1 THEN 555
-REM use GetCoords to determine mouse coordinates 560 GetCoords
-REM dummy to exit while getting coordinates 561 GOSUB 20000
+REM 560 GetCoords ' use this to run in a loop to determine mouse coordinates
 
 REM 570 IF CHX > 210 AND CHX < 225 AND CHY > 200 AND CHY < 220 THEN 1000
 570 IF CHX > 236 AND CHX < 252 AND CHY > 75 AND CHY < 100 THEN 1000
@@ -910,7 +910,7 @@ SUB GetXY (x, y)
     LOOP UNTIL NOT _MOUSEBUTTON(1)
 END SUB
 SUB GetCoords
-    x = 0: y = 0
+    x = -1: y = -1
     WHILE x <> 0
         GetXY x, y
         PRINT x
