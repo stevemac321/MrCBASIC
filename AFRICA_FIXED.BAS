@@ -219,15 +219,16 @@ REM 349 WAVE 0,SIN
 554 CHX = 0
 555 CHY = 0
 556 B = 0
-557 Mouser CHX, CHY, B
-559 IF B <> -1 THEN 555
-560 PRINT CHX
-561 PRINT CHY
-562 PRINT "hard coding mouse x and y for now."
-563 SLEEP
-564 CHX = 211
-565 CHY = 201
-570 IF CHX > 210 AND CHX < 225 AND CHY > 200 AND CHY < 220 THEN 1000
+REM 557 Mouser CHX, CHY, B
+REM 559 IF B <> -1 THEN 555
+REM use GetCoords to determine mouse coordinates 560 GetCoords
+REM dummy to exit while getting coordinates 561 GOSUB 20000
+562 CHX = 0
+563 CHY = 0
+564
+565 GetXY CHX, CHY
+REM 570 IF CHX > 210 AND CHX < 225 AND CHY > 200 AND CHY < 220 THEN 1000
+570 IF CHX > 236 AND CHX < 252 AND CHY > 75 AND CHY < 100 THEN 1000
 571 IF CHX > 210 AND CHX < 225 AND CHY > 225 AND CHY < 250 THEN 572 ELSE GOTO 573
 572 BUBU = 1: GOTO 1000
 573 IF CHX > 240 AND CHX < 255 AND CHY > 75 AND CHY < 100 THEN 3000
@@ -894,4 +895,28 @@ SUB Mouser (x, y, b)
     b = _MOUSEBUTTON(1)
     x = _MOUSEX
     y = _MOUSEY
+END SUB
+
+SUB GetXY (x, y)
+    DO
+        i = _MOUSEINPUT
+        IF _MOUSEBUTTON(1) THEN
+            x = _MOUSEX
+            y = _MOUSEY
+            EXIT DO
+        END IF
+    LOOP
+    DO
+        i = _MOUSEINPUT
+    LOOP UNTIL NOT _MOUSEBUTTON(1)
+
+END SUB
+SUB GetCoords
+    x = 0: y = 0
+    WHILE x <> 0
+        GetXY x, y
+        PRINT x
+        PRINT y
+    WEND
+
 END SUB
