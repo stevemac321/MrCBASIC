@@ -1,0 +1,1 @@
+10 CLS20 SCORE = 0:ITEM=0:TRY=0:COR=0:SK=030 DIM ANS(1000):DIM A$(10):DIM B$(10)90 CLS:PRINT"":PRINT""91 PRINT"  Please type in your name and press the ENTER key."92 PRINT"":PRINT""
